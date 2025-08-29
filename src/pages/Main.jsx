@@ -30,6 +30,7 @@ const Main = () => {
       });
     }
   };
+  
 
   const handleNext = () => {
     if (scrollRef.current) {
