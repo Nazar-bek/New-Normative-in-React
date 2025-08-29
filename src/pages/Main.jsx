@@ -1,11 +1,23 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "../components/Slider";
 import CountTimer from "../components/CountTimer";
 import Card from "../components/Card";
 import { cards } from "../services/cartsData";
+import MainBanner from "../components/MainBanner";
+import Gaming from "../assets/svgs/Gaming";
+import { categories } from "../services/categories";
+import CategoryCard from "../components/CategoryCard";
 
 const Main = () => {
   const scrollRef = useRef(null);
+  const [active, setActive] = useState(0)
+
+  const categoryNext = () => {
+    setActive((prev) => (prev === categories.length -1 ? 0 : prev + 1))
+  }
+ const  categoryPrev = () => {
+    setActive((prev) => (prev === 0 ? categories.length - 1 : prev-1))
+  }
 
   const handlePrev = () => {
     if (scrollRef.current) {
@@ -154,6 +166,17 @@ const Main = () => {
           }
           </div>
         </div>
+        <div>
+          <MainBanner subtitle="Categories" onclickNext={categoryNext} onclickPrev={categoryPrev} title="Browse By Category" isButton={true}/>
+        </div>
+        <div id="category-wrapper" className="containeer  mx-auto flex gap-[30px] mt-15">
+          {
+          categories.map((item, idx) => (
+            <CategoryCard className={idx === active ? "bg-[#db4444] text-white" : "border-[#b3b3b3] hover:bg-[#db4444] hover:border-[#db4444] hover:text-white"}  category={item}/> 
+          ))
+        }
+        </div>
+        <MainBanner subtitle="This Month" title="Best Selling Products" Btn={true}/>
     </div>
   );
 };

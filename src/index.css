@@ -24,3 +24,6 @@ button{
   -ms-overflow-style: none; 
   scrollbar-width: none;    
 }
+.category-wrapper:hover .group{
+  background-color: red;
+}
