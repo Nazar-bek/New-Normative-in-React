@@ -7,6 +7,9 @@ import MainBanner from "../components/MainBanner";
 import Gaming from "../assets/svgs/Gaming";
 import { categories } from "../services/categories";
 import CategoryCard from "../components/CategoryCard";
+import BestCarts from "../components/BestCarts";
+import { bestCarts } from "../services/bestCarts";
+import BannerJbl from "../components/BannerJbl";
 
 const Main = () => {
   const scrollRef = useRef(null);
@@ -177,6 +180,16 @@ const Main = () => {
         }
         </div>
         <MainBanner subtitle="This Month" title="Best Selling Products" Btn={true}/>
+        <div className="containeer  mx-auto flex gap-[30px] mt-15">
+          {
+            bestCarts.map(item => (
+              <BestCarts item={item}/>
+            ))
+          }
+        </div>
+        <div className="containeer  mx-auto">
+          <BannerJbl/>
+        </div>
     </div>
   );
 };

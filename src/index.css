@@ -27,3 +27,7 @@ button{
 .category-wrapper:hover .group{
   background-color: red;
 }
+
+.banner_main{
+  filter: drop-shadow(10px 20px 100px gray);
+}
