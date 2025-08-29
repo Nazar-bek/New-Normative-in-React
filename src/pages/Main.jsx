@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slider from "../components/Slider";
 import CountTimer from "../components/CountTimer";
+import Card from "../components/Card";
+import { cards } from "../services/cartsData";
 
 const Main = () => {
+  const scrollRef = useRef(null);
+
+  const handlePrev = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -300, 
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleNext = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: 300, 
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <div className="border-t mt-5 border-t-[#B3B3B3]">
       <div className="containeer flex  mx-auto  px-6">
@@ -83,7 +104,7 @@ const Main = () => {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
+            <button onClick={handlePrev} className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
               <svg
                 width="18"
                 height="16"
@@ -101,7 +122,7 @@ const Main = () => {
               </svg>
             </button>
             <button className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
-              <button className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
+              <button onClick={handleNext} className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
                 <svg
                   width="19"
                   height="16"
@@ -117,11 +138,22 @@ const Main = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
+                
               </button>
             </button>
           </div>
         </div>
+        
       </div>
+      <div className=" mx-auto container">
+          <div ref={scrollRef} className="flex  overflow-auto gap-[30px] mt-15 hide-scrollbar ml-[60px]">
+            {
+            cards.map(item => (
+              <Card key={item.id} item={item}/>
+            ))
+          }
+          </div>
+        </div>
     </div>
   );
 };
