@@ -10,6 +10,8 @@ import CategoryCard from "../components/CategoryCard";
 import BestCarts from "../components/BestCarts";
 import { bestCarts } from "../services/bestCarts";
 import BannerJbl from "../components/BannerJbl";
+import ExploreCart from "../components/ExploreCart";
+import { explore } from "../services/explore";
 
 const Main = () => {
   const scrollRef = useRef(null);
@@ -190,6 +192,14 @@ const Main = () => {
         </div>
         <div className="containeer  mx-auto">
           <BannerJbl/>
+        </div>
+        <MainBanner subtitle="Explore" title="Explore More Products" isButton={true}/>
+        <div className="flex flex-wrap containeer mx-auto gap-[30px] mt-15">
+        {
+          explore.map(item => (
+            <ExploreCart item={item}/>
+          ))
+        }
         </div>
     </div>
   );
