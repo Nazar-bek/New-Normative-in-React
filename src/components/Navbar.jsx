@@ -17,7 +17,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-black border-b border-b-[#7f7f7f] font-poppins font-normal text-base leading-6 "
-                  : "hover:border-b-1 text-red-600 hover:border-b-[#7F7F7F] font-normal text-base leading-6 "
+                  : "hover:border-b-1 hover:border-b-[#7F7F7F] font-normal text-base leading-6 "
               }
             >
               Home
@@ -40,7 +40,7 @@ const Navbar = () => {
               to="/about"
               className={({ isActive }) =>
                 isActive
-                  ? "text-black border- font-poppins font-normal text-base leading-6 "
+                  ? "text-black border-b font-poppins font-normal text-base leading-6 "
                   : "hover:border-b-1 text-black hover:border-b-[#7F7F7F] font-normal text-base leading-6 "
               }
             >

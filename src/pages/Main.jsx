@@ -12,6 +12,11 @@ import { bestCarts } from "../services/bestCarts";
 import BannerJbl from "../components/BannerJbl";
 import ExploreCart from "../components/ExploreCart";
 import { explore } from "../services/explore";
+import FeatureCart from "../components/FeatureCart";
+import { feature } from "../services/feature";
+import Aside from "../components/Aside";
+import { deliveryData } from "../services/deliveries";
+import ServicesCart from "../components/ServicesCart";
 
 const Main = () => {
   const scrollRef = useRef(null);
@@ -44,62 +49,8 @@ const Main = () => {
   };
   return (
     <div className="border-t mt-5 border-t-[#B3B3B3]">
-      <div className="containeer flex  mx-auto  px-6">
-        <div className="w-[20%] border-r border-r-[#B3B3B3]  pr-4">
-          <ul className="flex flex-col gap-4 pt-10">
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Woman’s Fashion
-              <svg
-                width="8"
-                height="13"
-                viewBox="0 0 8 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.95 6.63597L0 1.68597L1.414 0.271973L7.778 6.63597L1.414 13L0 11.586L4.95 6.63597Z"
-                  fill="black"
-                />
-              </svg>
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Men’s Fashion
-              <svg
-                width="8"
-                height="13"
-                viewBox="0 0 8 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.95 6.63597L0 1.68597L1.414 0.271973L7.778 6.63597L1.414 13L0 11.586L4.95 6.63597Z"
-                  fill="black"
-                />
-              </svg>
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Electronics
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Home & Lifestyle
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Medicine
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Sports & Outdoor
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Baby’s & Toys
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Groceries & Pets
-            </li>
-            <li className="flex items-center justify-between font-normal text-base leading-6 tracking-[0%] text-center font-poppins cursor-pointer">
-              Health & Beauty
-            </li>
-          </ul>
-        </div>
+      <div className="containeer  flex mx-auto">
+        <Aside/>
         <div className="pt-10 pl-10">
           <Slider />
         </div>
@@ -163,8 +114,8 @@ const Main = () => {
         </div>
         
       </div>
-      <div className=" mx-auto container">
-          <div ref={scrollRef} className="flex  overflow-auto gap-[30px] mt-15 hide-scrollbar ml-[60px]">
+      <div className=" mx-auto product_container">
+          <div ref={scrollRef} className="flex   overflow-auto gap-[30px] mt-15 hide-scrollbar ml-[160px]">
             {
             cards.map(item => (
               <Card key={item.id} item={item}/>
@@ -178,7 +129,7 @@ const Main = () => {
         <div id="category-wrapper" className="containeer  mx-auto flex gap-[30px] mt-15">
           {
           categories.map((item, idx) => (
-            <CategoryCard className={idx === active ? "bg-[#db4444] text-white" : "border-[#b3b3b3] hover:bg-[#db4444] hover:border-[#db4444] hover:text-white"}  category={item}/> 
+            <CategoryCard key={idx} className={idx === active ? "bg-[#db4444] text-white" : "border-[#b3b3b3] hover:bg-[#db4444] hover:border-[#db4444] hover:text-white"}  category={item}/> 
           ))
         }
         </div>
@@ -193,7 +144,7 @@ const Main = () => {
         <div className="containeer  mx-auto">
           <BannerJbl/>
         </div>
-        <MainBanner subtitle="Explore" title="Explore More Products" isButton={true}/>
+        <MainBanner subtitle="Our Products" title="Explore Our Products" isButton={true}/>
         <div className="flex flex-wrap containeer mx-auto gap-[30px] mt-15">
         {
           explore.map(item => (
@@ -201,6 +152,19 @@ const Main = () => {
           ))
         }
         </div>
+        <MainBanner subtitle="Featured" title="New Arrival" />
+       <div className="new__arrival-grid containeer  mx-auto">
+        {feature.map((item) => (
+          <FeatureCart item={item} key={item.id} />
+        ))}
+      </div>
+      <div className="containeer  mx-auto flex justify-center mt-35 gap-22">
+        {
+          deliveryData.map(item => (
+            <ServicesCart item={item} key={item.id} />
+          ))
+        }
+      </div>
     </div>
   );
 };
