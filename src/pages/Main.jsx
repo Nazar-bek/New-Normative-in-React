@@ -20,29 +20,28 @@ import ServicesCart from "../components/ServicesCart";
 
 const Main = () => {
   const scrollRef = useRef(null);
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(0);
 
   const categoryNext = () => {
-    setActive((prev) => (prev === categories.length -1 ? 0 : prev + 1))
-  }
- const  categoryPrev = () => {
-    setActive((prev) => (prev === 0 ? categories.length - 1 : prev-1))
-  }
+    setActive((prev) => (prev === categories.length - 1 ? 0 : prev + 1));
+  };
+  const categoryPrev = () => {
+    setActive((prev) => (prev === 0 ? categories.length - 1 : prev - 1));
+  };
 
   const handlePrev = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -300, 
+        left: -300,
         behavior: "smooth",
       });
     }
   };
-  
 
   const handleNext = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 300, 
+        left: 300,
         behavior: "smooth",
       });
     }
@@ -50,7 +49,7 @@ const Main = () => {
   return (
     <div className="border-t mt-5 border-t-[#B3B3B3]">
       <div className="containeer  flex mx-auto">
-        <Aside/>
+        <Aside />
         <div className="pt-10 pl-10">
           <Slider />
         </div>
@@ -73,7 +72,10 @@ const Main = () => {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={handlePrev} className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
+            <button
+              onClick={handlePrev}
+              className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full"
+            >
               <svg
                 width="18"
                 height="16"
@@ -91,7 +93,10 @@ const Main = () => {
               </svg>
             </button>
             <button className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
-              <button onClick={handleNext} className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full">
+              <button
+                onClick={handleNext}
+                className="flex items-center justify-center w-[46px] h-[46px] bg-[#F5F5F5] rounded-full"
+              >
                 <svg
                   width="19"
                   height="16"
@@ -107,63 +112,79 @@ const Main = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                
               </button>
             </button>
           </div>
         </div>
-        
       </div>
       <div className=" mx-auto product_container">
-          <div ref={scrollRef} className="flex   overflow-auto gap-[30px] mt-15 hide-scrollbar ml-[160px]">
-            {
-            cards.map(item => (
-              <Card key={item.id} item={item}/>
-            ))
-          }
-          </div>
+        <div
+          ref={scrollRef}
+          className="flex   overflow-auto gap-[30px] mt-15 hide-scrollbar ml-[160px]"
+        >
+          {cards.map((item) => (
+            <Card key={item.id} item={item} />
+          ))}
         </div>
-        <div>
-          <MainBanner subtitle="Categories" onclickNext={categoryNext} onclickPrev={categoryPrev} title="Browse By Category" isButton={true}/>
-        </div>
-        <div id="category-wrapper" className="containeer  mx-auto flex gap-[30px] mt-15">
-          {
-          categories.map((item, idx) => (
-            <CategoryCard key={idx} className={idx === active ? "bg-[#db4444] text-white" : "border-[#b3b3b3] hover:bg-[#db4444] hover:border-[#db4444] hover:text-white"}  category={item}/> 
-          ))
-        }
-        </div>
-        <MainBanner subtitle="This Month" title="Best Selling Products" Btn={true}/>
-        <div className="containeer  mx-auto flex gap-[30px] mt-15">
-          {
-            bestCarts.map(item => (
-              <BestCarts item={item}/>
-            ))
-          }
-        </div>
-        <div className="containeer  mx-auto">
-          <BannerJbl/>
-        </div>
-        <MainBanner subtitle="Our Products" title="Explore Our Products" isButton={true}/>
-        <div className="flex flex-wrap containeer mx-auto gap-[30px] mt-15">
-        {
-          explore.map(item => (
-            <ExploreCart item={item}/>
-          ))
-        }
-        </div>
-        <MainBanner subtitle="Featured" title="New Arrival" />
-       <div className="new__arrival-grid containeer  mx-auto">
+      </div>
+      <div>
+        <MainBanner
+          subtitle="Categories"
+          onclickNext={categoryNext}
+          onclickPrev={categoryPrev}
+          title="Browse By Category"
+          isButton={true}
+        />
+      </div>
+      <div
+        id="category-wrapper"
+        className="containeer  mx-auto flex gap-[30px] mt-15"
+      >
+        {categories.map((item, idx) => (
+          <CategoryCard
+            key={idx}
+            className={
+              idx === active
+                ? "bg-[#db4444] text-white"
+                : "border-[#b3b3b3] hover:bg-[#db4444] hover:border-[#db4444] hover:text-white"
+            }
+            category={item}
+          />
+        ))}
+      </div>
+      <MainBanner
+        subtitle="This Month"
+        title="Best Selling Products"
+        Btn={true}
+      />
+      <div className="containeer  mx-auto flex gap-[30px] mt-15">
+        {bestCarts.map((item) => (
+          <BestCarts item={item} />
+        ))}
+      </div>
+      <div className="containeer  mx-auto">
+        <BannerJbl />
+      </div>
+      <MainBanner
+        subtitle="Our Products"
+        title="Explore Our Products"
+        isButton={true}
+      />
+      <div className="flex flex-wrap containeer mx-auto gap-[30px] mt-15">
+        {explore.map((item) => (
+          <ExploreCart item={item} />
+        ))}
+      </div>
+      <MainBanner subtitle="Featured" title="New Arrival" />
+      <div className="new__arrival-grid containeer  mx-auto">
         {feature.map((item) => (
           <FeatureCart item={item} key={item.id} />
         ))}
       </div>
       <div className="containeer  mx-auto flex justify-center mt-35 gap-22">
-        {
-          deliveryData.map(item => (
-            <ServicesCart item={item} key={item.id} />
-          ))
-        }
+        {deliveryData.map((item) => (
+          <ServicesCart item={item} key={item.id} />
+        ))}
       </div>
     </div>
   );
