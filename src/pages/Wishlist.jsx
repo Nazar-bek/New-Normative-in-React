@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import WishlistCard from "../components/WishlistCard";
+import { relatedStaff } from "../services/relatedItems";
 
 const Wishlist = () => {
   const { wishlistStore } = useSelector((state) => state.wishlist);
@@ -31,6 +32,14 @@ const Wishlist = () => {
             <div>
           <button className="border rounded py-4 px-12 border-[#7F7F7F]">See All</button>
             </div>  
+          </div>
+
+          <div className="grid grid-cols-4 gap-10" >
+            {
+                relatedStaff.map(item => (
+                    <WishlistCard key={item.id} rating={true} eye={true} item={item}/>
+                ))
+            }
           </div>
       </section>
     </main>
