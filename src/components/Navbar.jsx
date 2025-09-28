@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import Banner from "./Banner";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { profile } from "../services/profile";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+
+  const {wishlistStore} = useSelector(state => state.wishlist)
 
   const [active, isActive] = useState(false)
   const modalRef = useRef(null)
@@ -100,9 +103,21 @@ const Navbar = () => {
             </svg>
           </div>
           <div className="flex items-center cursor-pointer gap-4">
-            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Link to={"/wishlist"}>
+            <div className="relative">
+              <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
            <path d="M6 1C3.239 1 1 3.216 1 5.95C1 8.157 1.875 13.395 10.488 18.69C10.6423 18.7839 10.8194 18.8335 11 18.8335C11.1806 18.8335 11.3577 18.7839 11.512 18.69C20.125 13.395 21 8.157 21 5.95C21 3.216 18.761 1 16 1C13.239 1 11 4 11 4C11 4 8.761 1 6 1Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>
+            {wishlistStore.length > 0 && (
+           <div className="flex items-center justify-center absolute -top-2 -right-2 w-4 h-4 bg-[#DB4444] text-white rounded-full">
+              <p className="font-normal text-xs leading-[18px] font-poppins">
+                {wishlistStore.length}
+            </p>
+            
+           </div>
+           )}
+            </div>
+            </Link>
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M25 27C25.5523 27 26 26.5523 26 26C26 25.4477 25.5523 25 25 25C24.4477 25 24 25.4477 24 26C24 26.5523 24.4477 27 25 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

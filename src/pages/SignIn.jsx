@@ -18,7 +18,7 @@ const SignIn = () => {
                 <form className='flex flex-col gap-5 mt-4'>
                     <input className='font-normal text-base leading-6 font-poppins border-b w-full outline-none py-2' type="text" placeholder='Name'/>
                      <input className=' border-b w-full outline-none py-2 font-normal text-base leading-6 font-poppins' type="text" placeholder='Email or Phone Number'/>
-                      <input className=' border-b w-full outline-none py-2 font-normal text-base leading-6 font-poppins' type="text" placeholder='Password'/>
+                      <input className=' border-b w-full outline-none py-2 font-normal text-base leading-6 font-poppins' type="password" placeholder='Password'/>
                       <button className='w-full py-4 border rounded text-white bg-[#DB4444] font-medium text-base leading-6 font-poppins'>Create Account</button>
                       <button className='w-full py-4 border border-[#999999] rounded flex justify-center gap-4'>
                         <Google/>

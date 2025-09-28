@@ -3,10 +3,10 @@ import img1 from "../assets/bestfirts.png"
 import img2 from "../assets/bestsecond.png"
 import img3 from "../assets/bestthird.png"
 import img4 from "../assets/bestfourth.png"
-const id = uuidv4(); 
+
 export const bestCarts = [
     {
-        id:id,
+        id: 34,
         img: img1,
         title: "The north coat",
         price: 260,
@@ -14,7 +14,7 @@ export const bestCarts = [
         ratings: 65,
     },
     {
-        id: id,
+        id: 35,
         img: img2,
         title: "AGucci duffle bag",
         price: 960,
@@ -22,7 +22,7 @@ export const bestCarts = [
         ratings: 65,
     },
     {
-        id: id,
+        id: 36,
         img: img3,
         title: "RGB liquid CPU Cooler",
         price: 160,
@@ -30,7 +30,7 @@ export const bestCarts = [
         ratings: 65,
     },
       {
-        id: id,
+        id: 37,
         img: img4,
         title: "Small BookSelf",
         price: 260,

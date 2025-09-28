@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import Main from "./pages/Main";
 import SignIn from "./pages/SignIn";
 import Login from "./pages/Login";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about" element={<h1>About</h1>} />
         <Route path="/sign__up" element={<SignIn/>} />
         <Route path="/login" element={<Login/>}/>
+        <Route path="/wishlist" element={<Wishlist/>}/>
       </Route>
     </Routes>
   );
