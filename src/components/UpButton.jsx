@@ -12,12 +12,8 @@ const UpButton = () => {
         setVisible(false);
       }
     };
-
-
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-    console.log("render");
-    
+    return () => window.removeEventListener("scroll", toggleVisibility);    
   }, []);
 
   const scrollToTop = () => {

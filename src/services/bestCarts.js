@@ -12,6 +12,7 @@ export const bestCarts = [
         price: 260,
         prevPrice: 360,
         ratings: 65,
+        totalPrice:260
     },
     {
         id: 35,
@@ -20,6 +21,7 @@ export const bestCarts = [
         price: 960,
         prevPrice: 1160,
         ratings: 65,
+        totalPrice: 960
     },
     {
         id: 36,
@@ -28,6 +30,7 @@ export const bestCarts = [
         price: 160,
         prevPrice: 170,
         ratings: 65,
+        totalPrice: 160
     },
       {
         id: 37,
@@ -35,5 +38,6 @@ export const bestCarts = [
         title: "Small BookSelf",
         price: 260,
         ratings: 65,
+        totalPrice:260
     },
 ]

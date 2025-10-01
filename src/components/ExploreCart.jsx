@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import Rating from "./Rating";
 import Eye from "./Eye";
 import Heart from "./Heart";
+import { useDispatch, useSelector } from "react-redux";
+import { addToWishlist } from "../redux/slices/wishlistSlice";
 
 const ExploreCart = ({ item }) => {
-  // Color radio state for toggleable selection
-  const [selectedColorIdx, setSelectedColorIdx] = useState(0);
 
+  const [selectedColorIdx, setSelectedColorIdx] = useState(0);
+    const dispatch = useDispatch()
+  const {wishlistStore} = useSelector(state => state.wishlist)
+  const cart = wishlistStore.some(card =>  card.id === item.id)
   return (
     <div className="group cursor-pointer">
       <div className="relative flex items-center justify-center  w-[270px] h-[250px] bg-[#F5F5F5]  rounded">
@@ -20,7 +24,7 @@ const ExploreCart = ({ item }) => {
           Add to Cart
         </button>
         <Eye className={"absolute top-[54px] right-3 cursor-pointer"} />
-        <Heart className={"absolute top-3 right-3 cursor-pointer"} />
+                     <Heart strokeColor={cart ? "red" : "black"} currentColor={cart? "red" : "white"} className={`absolute text-white  top-3 right-3 cursor-pointer ${cart ? "text-red-500" : ""}`} onClick={() => dispatch(addToWishlist(item))}  />
       </div>
       <div>
         <h3 className="font-medium text-base leading-6 tracking-[0%] font-poppins mt-4">

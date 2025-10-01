@@ -10,39 +10,43 @@ import { v4 as uuidv4 } from "uuid";
 
 export const explore = [
   {
-    id: uuidv4(),
+    id: 234,
     img: img1,
     title: "Breed Dry Dog Food",
     price: 100,
     rating: 35,
     new: false,
+    totalPrice:100
   },
   {
-    id: uuidv4(),
+    id: 235,
     img: img2,
     title: "CANON EOS DSLR Camera",
     price: 360,
     rating: 95,
     new: false,
+    totalPrice: 360
   },
   {
-    id: uuidv4(),
+    id: 236,
     img: img3,
     title: "ASUS FHD Gaming Laptop",
     price: 700,
     rating: 325,
     new: false,
+    totalPrice:700
   },
   {
-    id: uuidv4(),
+    id: 243,
     img: img4,
     title: "Curology Product Set ",
     price: 500,
     rating: 145,
     new: false,
+    totalPrice: 500
   },
   {
-    id: uuidv4(),
+    id: 255,
     img: img5,
     title: "Kids Electric Car",
     price: 960,
@@ -50,9 +54,10 @@ export const explore = [
     new: true,
     IsRadio: true,
     colors: ["#FB1314", "#DB4444",],
+    totalPrice: 960
   },
    {
-    id: uuidv4(),
+    id: 265,
     img: img6,
     title: "Jr. Zoom Soccer Cleats",
     price:1160,
@@ -60,9 +65,10 @@ export const explore = [
     new: false,
     IsRadio: true,
     colors: ["#EEFF61", "#DB4444",],
+    totalPrice:1160
   },
     {
-    id: uuidv4(),
+    id: 275,
     img: img7,
     title: "GP11 Shooter USB Gamepad",
     price: 660,
@@ -70,15 +76,18 @@ export const explore = [
     new: true,
     IsRadio: true,
     colors: ["#000000", "#DB4444",],
+    totalPrice: 660
     },
     {
-    id: uuidv4(),
+    id: 280,
     img: img8,
     title: "Quilted Satin Jacket",
     price: 660,
     rating: 55,
     new: true,
     IsRadio: true,
-    colors: ["#184A48", "#DB4444"]
+    colors: ["#184A48", "#DB4444"],
+    totalPrice:660
     },
+
 ];

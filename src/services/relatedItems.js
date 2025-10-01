@@ -13,7 +13,8 @@ export const relatedStaff = [
     rating: 325,
     new: false,
     prevPrice: 1160,
-    discount: 35
+    discount: 35,
+    totalPrice: 700
   },
   {
     id: 111,
@@ -21,6 +22,7 @@ export const relatedStaff = [
     title: "HAVIT HV-G92 Gamepad",
     price: 120,
     ratings: 88,
+    totalPrice:120
   },
   {
     id: 112,
@@ -28,7 +30,8 @@ export const relatedStaff = [
     title: "AK-900 Wired Keyboard",
     price: 960,
     ratings: 75,
-    new: true
+    new: true,
+    totalPrice:960
   },
   {
     id: 113,
@@ -36,5 +39,6 @@ export const relatedStaff = [
     title: "IPS LCD Gaming Monitor",
     price: 370,
     ratings: 99,
+    totalPrice: 370
   },
 ];

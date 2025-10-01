@@ -4,6 +4,7 @@ import Heart from "./Heart";
 import Rating from "./Rating";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist } from "../redux/slices/wishlistSlice";
+import { addToCart } from "../redux/slices/cartSlice";
 
 const BestCarts = ({ item }) => {
   const dispatch = useDispatch()
@@ -15,7 +16,7 @@ const BestCarts = ({ item }) => {
         <img src={item.img} alt={item.title} />
         <Eye className={"absolute top-[54px] right-3 cursor-pointer"} />
         <Heart strokeColor={cart ? "red" : "black"} currentColor={cart? "red" : "white"} className={`absolute text-white  top-3 right-3 cursor-pointer ${cart ? "text-red-500" : ""}`} onClick={() => dispatch(addToWishlist(item))}  />
-        <button className="hidden group-hover:flex items-center justify-center absolute bottom-0 w-full h-10 border text-white bg-black">
+        <button onClick={() => dispatch(addToCart(item))} className="hidden group-hover:flex items-center justify-center absolute bottom-0 w-full h-10 border text-white bg-black">
           Add to Cart
         </button>
       </div>
