@@ -122,3 +122,106 @@ button{
     white-space: nowrap;
   width: 40px;
 }
+
+.checkbox__label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  display: none;
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+
+.biling__icon {
+  display: none;
+}
+
+.checkbox__input:checked ~ .checkmark {
+  background-color: #db4444;
+  border-color: #db4444;
+}
+
+.checkbox__input:checked ~ .checkmark .biling__icon {
+  display: block;
+}
+
+.bank__way {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 422px;
+}
+
+.bank-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.radio__summary-swap {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-summary {
+  display: none;
+}
+.radio__circle {
+  width: 14px;
+  height: 14px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+
+.summary__cash-method {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.radio__circle {
+  display: none;
+}
+.radio-summary:checked ~ .radio__summary-swap .radio__circle {
+  display: block;
+}
+
+.summary__coupon-part {
+  margin-top: 32px;
+}
+
+.summary__coupon-input {
+  width: 300px;
+  padding: 16px 24px;
+  border: 1px solid black;
+  border-radius: 4px;
+  outline: none;
+  font-family: var(--poppins-font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}

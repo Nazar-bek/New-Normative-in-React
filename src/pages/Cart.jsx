@@ -1,16 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img3 from "../assets/feature3.png"
 import PlusArrow from "../assets/PlusArrow";
 import MinusArrow from "../assets/MinusArrow";
 import { useSelector } from "react-redux";
 import Cartcard from "../components/Cartcard";
+import { toast } from "sonner";
 const Cart = () => {
 
   const {cartStore,totalPrice} = useSelector(state => state.cartSlice)
   console.log(cartStore);
   console.log(totalPrice);
-  
+  const navigate = useNavigate()
+  const handleRouting = () => {
+    if(cartStore.length === 0 || !cartStore){
+      toast.error("You have not added anything")
+    }else{
+      navigate("/checkout")
+    }
+  }
   
   return (
     <div className="conatiner max-w-[1170px] mx-auto">
@@ -91,7 +99,7 @@ const Cart = () => {
             </p>
           </div>
           <div className="flex justify-center items-center">
-            <button className="py-4 px-12 bg-[#DB4444]  text-white rounded font-medium text-base leading-6 font-poppins">
+            <button onClick={() => handleRouting()} className="py-4 px-12 bg-[#DB4444]  text-white rounded font-medium text-base leading-6 font-poppins">
             Procees to checkout
           </button>
           </div>
