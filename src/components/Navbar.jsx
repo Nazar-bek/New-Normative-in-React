@@ -156,10 +156,12 @@ const Navbar = () => {
               <div ref={modalRef} className={` absolute top-35 right-45 z-50 pt-[18px] rounded-sm pb-[10px] pr-3 pl-5 backdrop-blur-[100px] ${param !== "/" ?"bg-black/50" : "bg-red-500"}  flex flex-col gap-[13px]`}>
                 {
                   profile.map(item => (
+                    <Link to={item.path}>
                     <div key={item.id} className="flex gap-3 cursor-pointer">
                       <item.icon/>
                       <p className="text-white font-normal text-sm leading-[21px] font-poppins">{item.title}</p>
                     </div>
+                    </Link>
                   ))
                 }
               </div>

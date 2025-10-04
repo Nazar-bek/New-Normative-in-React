@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import wishlist from "../slices/wishlistSlice"
 import cartSlice from "../slices/cartSlice"
 import storage from "redux-persist/lib/storage"
+import profileSlice from "../slices/profileSlice"
 import { persistReducer, persistStore } from "redux-persist"; 
 
 
@@ -13,12 +14,12 @@ const middleWare = () => (next) =>(action) =>{
 }
 
 const rootReducer = combineReducers({
-    wishlist,cartSlice
+    wishlist,cartSlice, profileSlice
 })
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["wishlist", "cartSlice"], 
+  whitelist: ["wishlist", "cartSlice", "profileSlice"], 
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

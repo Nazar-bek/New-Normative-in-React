@@ -10,7 +10,8 @@ export const profile = [
     {
         id: uuidv4(),
         icon: icon1,
-        title: "Manage My Account"
+        title: "Manage My Account",
+        path: "/account"
     },
      {
         id: uuidv4(),
